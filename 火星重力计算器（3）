@@ -1,0 +1,99 @@
+/*
+题目：火星体重计算器
+背景：火星表面重力大约是地球的 38%（取换算系数 0.38）。
+
+任务：写一个 C 程序，让用户输入自己在地球上的体重（单位：千克），程序算出并在屏幕上显示他在火星上的体重（单位：千克）。
+
+限制条件（严格按第 3 章范围）
+
+只用你学过的东西：一个 main 函数、#define 常量、变量声明、printf / scanf、赋值和算术运算。
+不许用 if、循环、函数（除 main）、数组、字符串、指针。
+变量名要有意义，加一两句注释，缩进整齐。
+*/
+
+/*
+一开始真的不知道怎么写，已经有两个月没有碰代码了，而且也没学过#define函数，所以我不得已只好让他给我瞧出来了一个正确答案
+*/
+
+
+
+
+/* mars_weight.c -- 火星体重计算器
+ * 练习范围：《C Primer Plus》第 3 章（变量、float、printf/scanf、#define、算术）
+ * 编译：gcc mars_weight.c -o mars_weight
+ */
+#include <stdio.h>
+#define MARS_FACTOR 0.38    /* 火星表面重力约为地球的 38% */
+int main(void)
+{
+    float earth_weight;     /* 用户在地球上的体重（千克） */
+    float mars_weight;      /* 换算出来的火星体重（千克） */
+    printf("请输入你在地球上的体重（千克）：");
+    scanf("%f", &earth_weight);         /* %f 读入 float，别忘了 & */
+    mars_weight = earth_weight * MARS_FACTOR;   /* 核心就是这一句 */
+    printf("你在地球上的体重是 %f 千克。\n", earth_weight);
+    printf("你在火星上的体重是 %f 千克。\n", mars_weight);
+    return 0;
+}
+
+/*我写的结果如下*/
+#include<stdio.h>
+
+#define G 0.38
+
+int main() 
+{
+	float earth;
+
+	float mars;
+
+	printf("请输入你在地球上的体重：");
+
+	scanf("%f", earth);
+
+	mars = earth * G;
+
+	printf("你在地球上的体重是：", earth);
+
+	printf("你在火星上的体重是：", mars);
+
+	return 0;
+}
+
+
+
+/*然而错误在于是scanf()函数并没有被正确使用，二就是printf()没有用%f来调用变量里的数值，所以：*/
+
+#define _CRT_SECURE_NO_WARNINGS 1         /*忽略vs对scanf()的警告*/
+#include<stdio.h>
+
+#define G 0.38f
+
+int main() 
+{
+	float earth;
+
+	float mars;
+
+	printf("请输入你在地球上的体重：");
+
+
+	scanf("%f", &earth);
+
+	mars = earth * G;
+
+	printf("你在地球上的体重是：%f\n", earth);
+
+	printf("你在火星上的体重是：%f", mars);
+
+	return 0;
+}
+
+至此就这样结束了
+
+
+
+
+
+
+
