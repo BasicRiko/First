@@ -1,0 +1,32 @@
+#define _CRT_SECURE_NO_WARNINGS 1
+#include<stdio.h>
+
+int main(void) {
+	char kk;
+
+	printf("请输入一个字符：\n");
+
+	scanf("%f",&kk);
+
+	printf("你输入的字符是：%c\n", kk);/*输出它本身*/
+	printf("你输入的字符是：%d\n", kk);/*输出代码
+	printf("你输入的字符是：%c\n", kk); */
+}
+
+
+这里有个错误，&f是用于float类型的，所以这里应该改成&c
+
+#define _CRT_SECURE_NO_WARNINGS 1
+#include<stdio.h>
+
+int main(void) {
+	char kk;
+
+	printf("请输入一个字符：\n");
+
+	scanf("%c",&kk);/*此处有修改*/
+
+	printf("你输入的字符是：%c\n", kk);/*输出它本身*/
+	printf("你输入的字符是：%d\n", kk);/*输出代码
+	printf("你输入的字符是：%c\n", kk); */
+}
